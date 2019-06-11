@@ -1,0 +1,42 @@
+<idea-plugin>
+    <id>com.bugparty.dartjson</id>
+    <name>Dart json_serializable helper</name>
+    <vendor email="fancycode@gmail.com" url="https://github.com/bugparty/Dart-json_serializable-helper">bowman han</vendor>
+
+    <description><![CDATA[
+    Dart json_serializable helper for the IntelliJ platform.<br>
+    Supports generate fromJson and toJson for <a href="https://pub.dev/packages/json_serializable">json_serializable</a> package<br>
+    For example
+    <code>  factory FooClass.fromJson(Map<String, dynamic> json) => _$FooClassFromJson(json);
+  Map<String, dynamic> toJson() => _$FooClassToJson(this);</code>
+    Do you like it? Give it a star at <a href="https://github.com/bugparty/Dart-json_serializable-helper">GitHub</a>
+    Rate it at <a href="https://plugins.jetbrains.com/plugin/12521-dart-json-serializable-helper">plugins.jetbrains.com.</a>
+    There's no future of >Dart json_serializable helper without strong support from the community!
+    ]]></description>
+
+    <change-notes><![CDATA[
+        <b>Changes in version 1.0.0</b>
+        <ul>
+          <li>Initial version</li>
+        </ul>
+      ]]></change-notes>
+    <depends>Dart</depends>
+    <depends>com.intellij.modules.xml</depends>
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+
+    </extensions>
+
+    <actions>
+        <group id="com.bugparty.dartjson.CodeGenMenu" text="Gen Json Factory" description="Gen Json Factory for dart json_serializer">
+            <add-to-group anchor="after" relative-to-action="Generate.EqualsAndHashcode.Dart" group-id="GenerateGroup"/>
+            <action id="Generate.Bugparty.GenJsonFactoryAction" class="com.bugparty.dartjson.GenJsonFactoryAction" text="Gen Json Factory" description="Gen Json Factory for dart json_serializer"/>
+        </group>
+
+        <action id="Generate.Bugparty.GenJsonFactoryForFileAction"
+                class="com.bugparty.dartjson.GenJsonFactoryForFileAction" text="Gen Json Factory For File" description="Gen Json Factory For File">
+            <add-to-group group-id="CodeMenu" anchor="last"/>
+
+        </action>
+    </actions>
+</idea-plugin>
